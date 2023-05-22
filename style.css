@@ -1,0 +1,395 @@
+@font-face {
+	font-family: 'Sweet Mavka Script';
+	src:url('https://cdn.glitch.global/ec0593ef-0a0d-4911-87af-7ed819daf440/Sweet%20Mavka%20Script.ttf?v=1676150480232');
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    background-color: #698269;
+}
+
+/*Видео*/
+
+.video-container {
+    position: fixed; /*если поставить только это видео будет видно не полностью и не будет скрола, поэтому добавляем...*/
+    top:0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    
+}
+
+/*Контейнер музыки*/
+.playMusic {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px 0;
+}
+
+/*Кнопка вкл/вкл музыку*/
+.myButton {
+    margin-left: 25px;
+    margin-top: 10px;
+    width: 30px;
+    height: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #f2fe7b;
+    box-shadow:
+    0 0 7px #f7f0a6,
+    0 0 10px #f7f0a6,
+    0 0 21px #f7f0a6,
+    0 0 42px #f2fe7b,
+    0 0 82px #ffea19,
+    0 0 92px #ffea19,
+    0 0 102px #ffea19,
+    0 0 151px #ffea19;
+   }
+
+#pause {
+    display: none;
+}
+
+/*Главный блок Заголовка и счетчика*/
+
+.main-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+
+/*Заголовки h1 h3*/
+
+.heading {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+    /* height: auto; */
+	/* border: 1px solid white; */
+	
+}
+
+/* Заголовок h1 До Нового года...*/
+h1 {
+    font-size: 120px;
+    /* background-color: rgba(251, 248, 249, 0.3); */
+    padding: 10px;
+    /* border: 3px solid black;
+	border-radius: 5px; */
+    font-family: 'Sweet Mavka Script', regular;
+    /* animation: flicker 1.5s infinite alternate; */
+    color: #000;
+    /* animation: pulsate 0.5s ease-in-out infinite alternate;   */
+    text-shadow: 
+    0 0 7px #daf9d8,
+    0 0 10px #bffb72,
+    0 0 21px #bffb72,
+    0 0 42px #39ff14,
+    0 0 82px #39ff14,
+    0 0 92px #39ff14,
+    0 0 102px #39ff14,
+    0 0 151px #39ff14;
+
+}
+
+
+/*Заголовок h3 осталось*/
+.time {
+    font-size: 40px;
+}
+
+/*Стикер Санта*/
+.santa {
+    display: none;
+}
+
+
+/*Стикер появляется с анимацией по достижении времени*/
+.santaCame {
+    display: flex;
+    width: 300px;
+}
+
+/*Контейнер счетчика общий*/
+.container {
+    display: flex; 
+	/* justify-content: space-around; */
+    justify-content: center;
+    flex-wrap: wrap;
+	margin-top: 200px;
+	/* border: 1px solid white; */
+	
+	
+}
+
+/* контейнер блоков счетчика*/
+.christmas {
+    /* background-color: rgba(251, 248, 249, 0.1); */
+    height: 150px;
+    width: 200px;
+    margin-top: 50px;
+    /* border: 3px solid black; */
+	/* border-radius: 5px; */
+    /* justify-content: space-between;
+    flex-direction: column; */
+
+}
+
+/* Контейнер самого счета и названия: дни, часы итд*/
+.block {
+    display: flex;
+    flex-direction: column;
+	/* justify-content: space-between; */
+    align-items: center;
+	/* border: 1px solid white; */
+}
+
+/*Стиль текста дни, часы итд*/
+
+h3 {
+	font-family: 'Playfair Display', serif;
+    font-size: 20px;  
+    padding: 10px;
+	/* text-shadow: 5px 5px 5px whitesmoke; */
+
+}
+
+/*стиль непосредственно отсчета из JS*/
+
+.days, .hours, .minutes, .seconds {
+    font-family: 'Playfair Display', serif;
+    font-size: 70px;  
+	/* text-shadow: 5px 5px 5px whitesmoke; */
+    /* animation: pulsate 0.5s ease-in-out infinite alternate;  */
+    text-shadow:
+    0 0 7px #daf9d8,
+    0 0 10px #bffb72,
+    0 0 21px #bffb72,
+    0 0 42px #39ff14,
+    0 0 82px #39ff14,
+    0 0 92px #39ff14,
+    0 0 102px #39ff14,
+    0 0 151px #39ff14;
+}
+
+/* Стиль когда достигнут день НГ*/
+
+.d-day {
+    font-size: 120px;
+    font-family: 'Sweet Mavka Script', regular;
+    text-shadow:
+    0 0 7px #ffa420,
+    0 0 10px #ffa420,
+    0 0 21px #ffa420,
+    0 0 42px #ffa420,
+    0 0 82px #ffa420,
+    0 0 92px #ffa420,
+    0 0 102px #ffa420,
+    0 0 151px #f80000;
+	
+}
+
+
+
+
+
+/* МОЖНО ПОДКЛЮЧИТЬ МЕРЦАНИЕ НЕОНА, НО ТОГДА ОЧЕНЬ ТОРМОЗИТ ВИДЕО */
+
+
+/* неоновый эффект мерцающий */
+
+/* @keyframes flicker {
+    
+    0%, 18%, 22%, 25%, 35%, 53%, 57%, 100% {
+  
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fefe22,
+        0 0 40px #fefe22,
+        0 0 80px #fefe22,
+        0 0 90px #fefe22,
+        0 0 100px #fefe22,
+        0 0 150px #fefe22;
+    
+    }
+
+    10%, 20%, 25%, 30%, 35%, 40%, 45%, 50% {
+    text-shadow: none;
+}
+} */
+
+
+/* 
+Неоновый эффект мягкое мерцание настройки длительности анимации в h1 */
+
+@keyframes pulsate {
+    100% {
+      /* Larger blur radius */
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #39ff14,
+        0 0 80px #39ff14,
+        0 0 90px #39ff14,
+        0 0 100px #39ff14,
+        0 0 150px #39ff14;
+    }
+   0% {
+      /* A slightly smaller blur radius */
+      text-shadow:
+        0 0 4px #fff,
+        0 0 10px #fff,
+        0 0 18px #fff,
+        0 0 38px #39ff14,
+        0 0 73px #39ff14,
+        0 0 80px #39ff14,
+        0 0 94px #39ff14,
+        0 0 140px #39ff14;
+    }
+  }
+  
+  /* */
+
+
+
+  /*АДАПТАЦИЯ*/
+
+
+
+  @media all and (max-width:1100px){
+
+  .container {
+    margin-top: 80px;
+  }
+  .santaCame {
+    width: 250px;
+  }
+
+  }
+
+  @media all and (max-width:900px){
+    .d-day {
+        font-size: 80px;
+      }
+
+
+  }
+
+
+
+  @media all and (max-width:800px){
+    h1 {
+        font-size: 60px;
+  }
+  .time {
+    font-size: 30px;
+}
+
+.christmas {
+    height: 100px;
+    width: 150px;
+    margin-top: 50px;
+}
+
+.days, .hours, .minutes, .seconds {
+    font-size: 50px;  
+}
+
+.d-day {
+    font-size: 60px;
+  }
+}
+
+
+
+  @media all and (max-width:600px){
+    .christmas {
+        height: 50px;
+        width: 100px;
+        margin-top: 40px;
+    }
+    
+    
+    h3 {
+        font-size: 15px;
+    }
+    .days, .hours, .minutes, .seconds {
+        font-size: 40px;  
+    }
+  }
+
+
+
+
+  @media all and (max-width:500px){
+    h1 {
+        font-size: 50px;
+  }
+  .time {
+    font-size: 20px;
+}
+
+.christmas {
+    height: 40px;
+    width: 80px;
+    margin-top: 40px;
+}
+
+
+h3 {
+    font-size: 10px;
+}
+.days, .hours, .minutes, .seconds {
+    font-size: 30px;  
+}
+
+
+.d-day {
+    font-size: 30px;
+  }
+
+  .santaCame {
+    width: 200px;
+  }
+  }
+
+
+
+  @media all and (max-width:300px){
+    h1 {
+        font-size: 30px;
+  }
+  .time {
+    font-size: 15px;
+}
+
+.christmas {
+    height: 30px;
+    width: 60px;
+    margin-top: 30px;
+}
+
+
+h3 {
+    font-size: 10px;
+}
+.days, .hours, .minutes, .seconds {
+    font-size: 20px;  
+}
+
+
+  }

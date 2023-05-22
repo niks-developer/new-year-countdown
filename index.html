@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Сколько дней осталось до Нового года </title>
+    <link rel="icon" type ="image/icon/png" href="icon-christmas.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+            
+    <audio id="myAudio" src="Падал прошлогодний снег - Intro.mp3" loop="loop" autoplay="allowed"></audio>
+
+    <div class="playMusic">
+        <h5>music ON/OFF</h5>
+            <button class="myButton" id="play"><i class="fa fa-play"></i></button>
+            <button class="myButton" id="pause"><i class="fa fa-pause"></i></button>
+    </div>
+
+            <div class="video-container">
+                <video class="myVideo" autoplay="autoplay" loop="loop" muted defaultMuted playsinline>
+                    <source src="Christmas-Tree.mp4" type="video/mp4">
+                </video>
+            </div>
+
+     <div class="main-block">
+            <div class="heading">
+                <h1>до Нового года</h1>
+                <h3 class="time">осталось</h3>
+                <img class="santa" src="sticker-santa-claus.png" alt="">
+            </div>
+
+        
+            <div class="container">
+            
+                <div class="christmas">
+                    <div class="block">
+                        <h4 class="days"></h4> <!--эти данные мы получаем при помощи Js-->
+                        <h3 class="text-days"></h3>
+                    </div>
+                </div>
+            
+                <div class="christmas">
+                    <div class="block">
+                        <h4 class="hours"></h4>
+                        <h3 class="text-hours"></h3>
+                    </div>
+                </div>
+            
+            
+                <div class="christmas">
+                    <div class="block">
+                        <h4 class="minutes"></h4>
+                        <h3 class="text-minutes"></h3>
+                    </div>
+                </div>
+            
+                <div class="christmas">
+                    <div class="block">
+                        <h4 class="seconds"></h4>
+                        <h3 class="text-seconds"></h3>
+                    </div>
+                </div>
+            </div>      
+    </div>
+
+        
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="script.js"></script>  
+</body>
+</html>
