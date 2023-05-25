@@ -41,7 +41,7 @@ function pauseMusic(){
 
 //счетчик
 function christmasCountdown() {
-    const christmasDate = new Date("May 25, 2023 11:41");
+    const christmasDate = new Date("January 01, 2024 00:00");
     const now = new Date();
     const diff = christmasDate - now;
 
